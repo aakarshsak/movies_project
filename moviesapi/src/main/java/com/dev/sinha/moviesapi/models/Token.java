@@ -1,30 +1,28 @@
-package com.dev.sinha.moviesapi;
+package com.dev.sinha.moviesapi.models;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Reference;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
-import java.util.List;
-
-@Document(collection="movies")
+@Document("tokens")
 @Data
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
-public class Movie {
+@AllArgsConstructor
+public class Token {
     @Id
     private ObjectId id;
-    private String imdbId;
-    private String title;
-    private String releaseDate;
-    private String trailerLink;
-    private String poster;
-    private List<String> genres;
-    private List<String> backdrops;
+    private String token;
+    private TokenType tokenType = TokenType.BEARER;
+    private boolean revoked;
+    private boolean expired;
     @DocumentReference
-    private List<Review> reviewIds;
+    private User user;
 
 }

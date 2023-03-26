@@ -1,12 +1,13 @@
-package com.dev.sinha.moviesapi;
+package com.dev.sinha.moviesapi.services;
 
+import com.dev.sinha.moviesapi.repositories.ReviewRepository;
+import com.dev.sinha.moviesapi.models.Movie;
+import com.dev.sinha.moviesapi.models.Review;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class ReviewService {
