@@ -1,14 +1,13 @@
-package com.dev.sinha.moviesapi;
+package com.dev.sinha.moviesapi.services;
 
+import com.dev.sinha.moviesapi.repositories.MovieRepository;
+import com.dev.sinha.moviesapi.models.Movie;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
-import static org.springframework.data.mongodb.core.query.Criteria.where;
 
 @Service
 public class MovieService {
