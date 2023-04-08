@@ -4,13 +4,15 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="/" style={{ color: "gold" }}>
+        <Navbar.Brand href="/home" style={{ color: "gold" }}>
           <FontAwesomeIcon icon={faVideoSlash} />
           Gold
         </Navbar.Brand>
@@ -21,17 +23,23 @@ const Header = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/home">
               Home
             </NavLink>
             <NavLink className="nav-link" to="/watchList">
               Watch List
             </NavLink>
           </Nav>
-          <Button variant="outline-info" className="me-2">
+          <Button
+            variant="outline-info"
+            className="me-2"
+            onClick={() => navigate("/Login")}
+          >
             Login
           </Button>
-          <Button variant="outline-info">Register</Button>
+          <Button variant="outline-info" onClick={() => navigate("/Register")}>
+            Register
+          </Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>
